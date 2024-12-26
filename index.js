@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-
+const cors = require("cors");
 const database = require("./config/database");
 require("dotenv").config();
 
@@ -10,6 +10,8 @@ database.connect();
 const app = express();
 const port = process.env.PORT;
 
+app.use(cors());
+
 // parse application/json
 app.use(bodyParser.json());
 
@@ -18,5 +20,5 @@ routeApiVer1(app);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
-  
+
 })
