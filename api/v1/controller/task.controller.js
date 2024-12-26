@@ -24,6 +24,14 @@ module.exports.index = async (req, res) => {
   let objectPagination = paginationHelper(2, req.query, countTasks);
 
   //
+
+  //tìm kiếm
+  if(req.query.keyword) {
+   
+    const regex = new RegExp(req.query.keyword, "i");
+    find.title = regex;
+}
+  //end tìm kiếm
   
   const tasks = await Task.find(find)
     .sort(sort)
