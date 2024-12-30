@@ -202,3 +202,12 @@ module.exports.list = async (req, res) => {
   })
 };
 
+// [POST] /api/v1/users/logout
+module.exports.logout = async (req, res) => {
+  res.clearCookie("token");
+  res.json({
+    code: 200,
+    message: "Thành công!",
+  });
+};
+
