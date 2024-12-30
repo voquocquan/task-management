@@ -20,7 +20,7 @@ router.get("/detail", authMiddleware.requireAuth, controller.detail);
 
 router.get("/list", authMiddleware.requireAuth, controller.list);
 
-router.get("/logout", controller.logout);
+router.post("/logout", controller.logout);
 
 
 module.exports = router;
